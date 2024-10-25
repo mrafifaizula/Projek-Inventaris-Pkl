@@ -1,0 +1,135 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = ProjekPklInventaris
+build_property.RootNamespace = ProjekPklInventaris
+build_property.ProjectDir = C:\Dotnet\ProjekPklInventaris\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Dotnet\ProjekPklInventaris
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Dotnet/ProjekPklInventaris/Views/Backend/Barang/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja2VuZFxCYXJhbmdcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dotnet/ProjekPklInventaris/Views/Backend/Barang/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja2VuZFxCYXJhbmdcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dotnet/ProjekPklInventaris/Views/Backend/Barang/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja2VuZFxCYXJhbmdcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dotnet/ProjekPklInventaris/Views/Backend/Barang/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja2VuZFxCYXJhbmdcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dotnet/ProjekPklInventaris/Views/Backend/Barang/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja2VuZFxCYXJhbmdcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dotnet/ProjekPklInventaris/Views/Backend/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja2VuZFxEYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dotnet/ProjekPklInventaris/Views/Backend/Kategori/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja2VuZFxLYXRlZ29yaVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dotnet/ProjekPklInventaris/Views/Backend/Kategori/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja2VuZFxLYXRlZ29yaVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dotnet/ProjekPklInventaris/Views/Backend/Kategori/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja2VuZFxLYXRlZ29yaVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dotnet/ProjekPklInventaris/Views/Backend/Kategori/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja2VuZFxLYXRlZ29yaVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dotnet/ProjekPklInventaris/Views/Backend/Kategori/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja2VuZFxLYXRlZ29yaVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dotnet/ProjekPklInventaris/Views/Backend/Pemasok/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja2VuZFxQZW1hc29rXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dotnet/ProjekPklInventaris/Views/Backend/Pemasok/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja2VuZFxQZW1hc29rXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dotnet/ProjekPklInventaris/Views/Backend/Pemasok/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja2VuZFxQZW1hc29rXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dotnet/ProjekPklInventaris/Views/Backend/Pemasok/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja2VuZFxQZW1hc29rXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dotnet/ProjekPklInventaris/Views/Backend/Pemasok/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja2VuZFxQZW1hc29rXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dotnet/ProjekPklInventaris/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dotnet/ProjekPklInventaris/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dotnet/ProjekPklInventaris/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dotnet/ProjekPklInventaris/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dotnet/ProjekPklInventaris/Views/Template/Backend.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVtcGxhdGVcQmFja2VuZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dotnet/ProjekPklInventaris/Views/Template/Backend/Footer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVtcGxhdGVcQmFja2VuZFxGb290ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dotnet/ProjekPklInventaris/Views/Template/Backend/Navbar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVtcGxhdGVcQmFja2VuZFxOYXZiYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dotnet/ProjekPklInventaris/Views/Template/Backend/Sidebar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVtcGxhdGVcQmFja2VuZFxTaWRlYmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dotnet/ProjekPklInventaris/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dotnet/ProjekPklInventaris/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dotnet/ProjekPklInventaris/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-3nlwiu8noq

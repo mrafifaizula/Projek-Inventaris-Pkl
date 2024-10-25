@@ -1,0 +1,60 @@
+@model Barang
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Barang</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nama)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nama)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Harga)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Harga)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Stok)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Stok)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Keterangan)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Keterangan)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Gambar)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Gambar)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Kategori)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Kategori.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Pemasok)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Pemasok.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

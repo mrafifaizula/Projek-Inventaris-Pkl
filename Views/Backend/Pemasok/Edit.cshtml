@@ -1,0 +1,50 @@
+@model Pemasok
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Template/Backend.cshtml";
+
+}
+
+<div class="main-content">
+    <section class="section">
+        <div class="section-header">
+            <h1>Edit Pemasok</h1>
+        </div>
+
+        <div class="section-body">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between">
+                            <h4>Edit Pemasok</h4>
+                            <a class="btn btn-sm btn-primary" title="Tambah" asp-controller="Pemasok"
+                                asp-action="Index">
+                                <i class="bi bi-box-arrow-left"></i> Kembali
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <form asp-action="Edit" method="post" enctype="multipart/form-data">
+                                <div class="section-title">Nama Pemasol</div>
+                                <div class="custom-file">
+                                    <input asp-for="Nama" class="form-control" />
+                                    <span asp-validation-for="Nama" class="text-danger"></span>
+                                </div>
+
+                                <div class="section-title">Alamat</div>
+                                <div class="custom-file">
+                                    <input asp-for="Alamat" class="form-control" />
+                                    <span asp-validation-for="Alamat" class="text-danger"></span>
+                                </div>
+                                <div class="card-footer">
+                                    <button type="submit" value="Edit" class="btn btn-sm btn-success">Simpan</button>
+                                    <button type="reset" class="btn btn-sm btn-warning">Reset</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

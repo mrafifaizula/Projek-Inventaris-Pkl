@@ -1,0 +1,27 @@
+<div class="main-sidebar sidebar-style-2">
+    <aside id="sidebar-wrapper">
+        <div class="sidebar-brand">
+            <a href="index.html">Inventaris</a>
+        </div>
+        <div class="sidebar-brand sidebar-brand-sm">
+            <a href="index.html">Iv</a>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="menu-header">Dashboard</li>
+            <li class="nav-item">
+                <a asp-controller="Backend" asp-action="Index" class="nav-link"><i
+                        class="fas fa-fire"></i><span>Dashboard</span></a>
+            </li>
+            <li class="menu-header">Tables</li>
+            <li class="dropdown">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
+                    <span>Tables</span></a>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link" asp-controller="Kategori" asp-action="Index">Kategori</a></li>
+                    <li><a class="nav-link" asp-controller="Pemasok" asp-action="Index">Pemasok</a></li>
+                    <li><a class="nav-link" asp-controller="Barang" asp-action="Index">Barang</a></li>
+                </ul>
+            </li>
+        </ul>
+    </aside>
+</div>

@@ -1,0 +1,103 @@
+@model Barang
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Template/Backend.cshtml";
+
+}
+
+<div class="main-content">
+    <section class="section">
+        <div class="section-header">
+            <h1>Create Barang</h1>
+        </div>
+
+        <div class="section-body">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between">
+                            <h4>Create Barang</h4>
+                            <a class="btn btn-sm btn-primary" title="Tambah" asp-controller="Barang" asp-action="Index">
+                                <i class="bi bi-box-arrow-left"></i> Kembali
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <form asp-action="Create" method="post" enctype="multipart/form-data">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <div class="section-title">Nama Barang</div>
+                                        <div class="custom-file">
+                                            <input asp-for="Nama" class="form-control" />
+                                            <span asp-validation-for="Nama" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <div class="section-title">Image</div>
+                                        <div class="custom-file">
+                                            <input type="file" asp-for="Gambar" class="custom-file-input"
+                                                id="customFile" />
+                                            <label class="custom-file-label" for="customFile">Choose file</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <div class="section-title">Harga</div>
+                                        <div class="custom-file">
+                                            <input asp-for="Harga" class="form-control" />
+                                            <span asp-validation-for="Harga" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <div class="section-title">Jumlah</div>
+                                        <div class="custom-file">
+                                            <input asp-for="Stok" class="form-control" />
+                                            <span asp-validation-for="Stok" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <div class="section-title">Kategori</div>
+                                        <div class="custom-file">
+                                            <label asp-for="KategoriId" class="control-label"></label>
+                                            <select asp-for="KategoriId" class="form-control"
+                                                asp-items="ViewBag.KategoriId">
+                                                <option value="" disabled selected>--Pilih Kategori--</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <div class="section-title">Pemasok</div>
+                                        <div class="custom-file">
+                                            <label asp-for="PemasokId" class="control-label"></label>
+                                            <select asp-for="PemasokId" class="form-control"
+                                                asp-items="ViewBag.PemasokId">
+                                                <option value="" disabled selected>--Pilih Pemasok--</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="section-title">Kerangan</div>
+                                <div class="custom-file">
+                                    <textarea asp-for="Keterangan" class="form-control"></textarea>
+                                    <span asp-validation-for="Keterangan" class="text-danger"></span>
+                                </div>
+
+
+                                <div class="card-footer">
+                                    <button type="submit" value="Create" class="btn btn-sm btn-success">Simpan</button>
+                                    <button type="reset" class="btn btn-sm btn-warning">Reset</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

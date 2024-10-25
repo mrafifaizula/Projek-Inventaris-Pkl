@@ -1,0 +1,97 @@
+@model IEnumerable<Pemasok>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Template/Backend.cshtml";
+}
+
+
+<div class="main-content">
+    <section class="section">
+        <div class="section-header">
+            <h1>Table Pemasok</h1>
+        </div>
+
+        <div class="section-body">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between">
+                            <h4>Data Pemasok</h4>
+                            <a class="btn btn-sm btn-primary" title="Tambah" asp-controller="Pemasok"
+                                asp-action="Create">
+                                <i class="bi bi-plus-lg"></i> Tambah
+                            </a>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped" id="myTable">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Nama Pemasok</th>
+                                            <th>Alamat</th>
+                                            <th class="text-center">Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @{
+                                            int nomor = 1;
+                                        }
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@nomor</td>
+                                                <td>@Html.DisplayFor(modelItem => item.Nama)</td>
+                                                <td>@Html.DisplayFor(modelItem => item.Alamat)</td>
+                                                <td class="text-center">
+                                                    <div class="form-button-action">
+                                                        <div class="dropdown">
+                                                            <a href="#" data-toggle="dropdown"
+                                                                class="btn btn-sm btn-warning dropdown-toggle">Options</a>
+                                                            <div class="dropdown-menu">
+
+                                                                <form asp-controller="Pemasok" asp-action="Details"
+                                                                    asp-route-id="@item.Id" method="get">
+                                                                    <button type="submit"
+                                                                        class="dropdown-item has-icon text-small">
+                                                                        <i class="far fa-eye"></i> View
+                                                                    </button>
+                                                                </form>
+
+                                                                <form asp-controller="Pemasok" asp-action="Edit"
+                                                                    asp-route-id="@item.Id" method="get">
+                                                                    <button type="submit"
+                                                                        class="dropdown-item has-icon text-small">
+                                                                        <i class="far fa-edit"></i> Edit
+                                                                    </button>
+                                                                </form>
+
+                                                                <form asp-controller="Pemasok" asp-action="Delete"
+                                                                    method="post" id="deleteForm-@item.Id">
+                                                                    <input type="hidden" name="id" value="@item.Id" />
+                                                                    <button type="button"
+                                                                        class="dropdown-item has-icon text-small text-danger"
+                                                                        onclick="confirmDelete(function() { document.getElementById('deleteForm-@item.Id').submit(); })">
+                                                                        <i class="far fa-trash-alt"></i> Delete
+                                                                    </button>
+                                                                </form>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            nomor++;
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
