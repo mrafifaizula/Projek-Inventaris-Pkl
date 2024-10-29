@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using MySql.EntityFrameworkCore.Extensions;
 using ProjekPklInventaris.Models;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<DataContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
     new MySqlServerVersion(new Version(8, 0, 21))));
+
+builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false).AddEntityFrameworkStores<DataContext>();
 
 builder.Services.AddControllersWithViews();
 
@@ -26,31 +29,34 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+app.UseAuthentication();
+app.MapRazorPages();
+
 app.UseRouting();
 
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "dashboard",
-    pattern: "dashboard",
+    pattern: "admin/dashboard",
     defaults: new { controller = "Backend", action = "Index" }
 );
 
 app.MapControllerRoute(
     name: "kategori",
-    pattern: "kategori/{action=Index}/{id?}",
+    pattern: "admin/kategori/{action=Index}/{id?}",
     defaults: new { controller = "Kategori", action = "Index" }
 );
 
 app.MapControllerRoute(
     name: "pemasok",
-    pattern: "pemasok/{action=Index}/{id?}",
+    pattern: "admin/pemasok/{action=Index}/{id?}",
     defaults: new { controller = "Pemasok", action = "Index" }
 );
 
 app.MapControllerRoute(
     name: "barang",
-    pattern: "barang/{action=Index}/{id?}",
+    pattern: "admin/barang/{action=Index}/{id?}",
     defaults: new { controller = "Barang", action = "Index" }
 );
 

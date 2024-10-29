@@ -5,10 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 using ProjekPklInventaris.Models;
 
 namespace ProjekPklInventaris.Controllers
 {
+    [Authorize]
+
     public class PemasokController : Controller
     {
         private readonly DataContext _context;
