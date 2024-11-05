@@ -44,7 +44,7 @@ namespace ProjekPklInventaris.Controllers
                 return NotFound();
             }
 
-            return View("~/Views/Backend/Pemasok/Details.cshtml",pemasok);
+            return View("~/Views/Backend/Pemasok/Details.cshtml", pemasok);
         }
 
         // GET: Pemasok/Create
@@ -68,15 +68,24 @@ namespace ProjekPklInventaris.Controllers
                 if (existingPemasok != null)
                 {
                     TempData["ErrorMessage"] = "Nama Pemasok sudah ada. Silakan gunakan nama lain.";
-                    return View(pemasok);
+                    return View("~/Views/Backend/Pemasok/Create.cshtml", pemasok);
                 }
+
+                DateTime utcNow = DateTime.UtcNow;
+
+                TimeZoneInfo indonesiaTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time");
+                DateTime indonesiaNow = TimeZoneInfo.ConvertTimeFromUtc(utcNow, indonesiaTimeZone);
+
+                pemasok.CreatedAt = indonesiaNow;
+                pemasok.UpdatedAt = indonesiaNow;
 
                 _context.Add(pemasok);
                 await _context.SaveChangesAsync();
                 TempData["SuccessMessage"] = "Data Berhasil Ditambah.";
                 return RedirectToAction(nameof(Index));
             }
-            return View("~/Views/Backend/Pemasok/Create.cshtml",pemasok);
+            TempData["ErrorMessage"] = "Nama pemasok harus diisi.";
+            return View("~/Views/Backend/Pemasok/Create.cshtml", pemasok);
         }
 
         // GET: Pemasok/Edit/5
@@ -92,7 +101,7 @@ namespace ProjekPklInventaris.Controllers
             {
                 return NotFound();
             }
-            return View("~/Views/Backend/Pemasok/Edit.cshtml",pemasok);
+            return View("~/Views/Backend/Pemasok/Edit.cshtml", pemasok);
         }
 
         // POST: Pemasok/Edit/5
@@ -109,18 +118,34 @@ namespace ProjekPklInventaris.Controllers
 
             if (ModelState.IsValid)
             {
-                var existingPemasok = await _context.Pemasok
-                    .FirstOrDefaultAsync(k => k.Nama == pemasok.Nama);
+                var existingPemasok = await _context.Pemasok.FindAsync(id);
 
-                if (existingPemasok != null)
+                if (existingPemasok == null)
                 {
-                    TempData["ErrorMessage"] = "Nama Pemasok sudah ada. Silakan gunakan nama lain.";
-                    return View(pemasok);
+                    return NotFound();
+                }
+
+                var duplicatePemasok = await _context.Pemasok
+                    .FirstOrDefaultAsync(k => k.Nama == pemasok.Nama && k.Id != id);
+
+                if (duplicatePemasok != null)
+                {
+                    TempData["ErrorMessage"] = "Nama pemasok sudah ada. Silakan gunakan nama lain.";
+                    return View("~/Views/Backend/Pemasok/Edit.cshtml", pemasok);
                 }
 
                 try
                 {
-                    _context.Update(pemasok);
+                    DateTime utcNow = DateTime.UtcNow;
+                    TimeZoneInfo indonesiaTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time");
+                    DateTime indonesiaNow = TimeZoneInfo.ConvertTimeFromUtc(utcNow, indonesiaTimeZone);
+
+                    // Update existing properties
+                    existingPemasok.Nama = pemasok.Nama;
+                    existingPemasok.Alamat = pemasok.Alamat;
+                    existingPemasok.UpdatedAt = indonesiaNow;
+
+                    // No need to call _context.Update() since existingPemasok is already being tracked
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -137,7 +162,9 @@ namespace ProjekPklInventaris.Controllers
                 TempData["SuccessMessage"] = "Data Berhasil Ditambah.";
                 return RedirectToAction(nameof(Index));
             }
-            return View("~/Views/Backend/Pemasok/Edit.cshtml",pemasok);
+
+            TempData["ErrorMessage"] = "Nama pemasok harus diisi.";
+            return View("~/Views/Backend/Pemasok/Edit.cshtml", pemasok);
         }
 
         // GET: Pemasok/Delete/5
@@ -155,7 +182,7 @@ namespace ProjekPklInventaris.Controllers
                 return NotFound();
             }
 
-            return View("~/Views/Backend/Pemasok/Delete.cshtml",pemasok);
+            return View("~/Views/Backend/Pemasok/Delete.cshtml", pemasok);
         }
 
         // POST: Pemasok/Delete/5

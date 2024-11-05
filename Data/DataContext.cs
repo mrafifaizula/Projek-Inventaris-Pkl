@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore; 
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using ProjekPklInventaris.Models;
 
 namespace ProjekPklInventaris.Models
@@ -19,5 +19,6 @@ namespace ProjekPklInventaris.Models
         public DbSet<Kategori> Kategori { get; set; } = default!;
         public DbSet<Pemasok> Pemasok { get; set; } = default!;
         public DbSet<Barang> Barang { get; set; } = default!;
+
     }
 }

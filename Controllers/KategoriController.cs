@@ -24,7 +24,16 @@ namespace ProjekPklInventaris.Controllers
         public async Task<IActionResult> Index()
         {
             var kategoriList = await _context.Kategori.ToListAsync();
+
+            var wibTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time");
+            foreach (var kategori in kategoriList)
+            {
+                kategori.CreatedAt = TimeZoneInfo.ConvertTimeFromUtc(kategori.CreatedAt, wibTimeZone);
+                kategori.UpdatedAt = TimeZoneInfo.ConvertTimeFromUtc(kategori.UpdatedAt, wibTimeZone);
+            }
+
             var sortedList = kategoriList.OrderByDescending(k => k.Id).ToList();
+
             return View("~/Views/Backend/Kategori/Index.cshtml", sortedList);
         }
 
@@ -43,7 +52,7 @@ namespace ProjekPklInventaris.Controllers
                 return NotFound();
             }
 
-            return View("~/Views/Backend/Kategori/Details.cshtml",kategori);
+            return View("~/Views/Backend/Kategori/Details.cshtml", kategori);
         }
 
         // GET: Kategori/Create
@@ -67,15 +76,23 @@ namespace ProjekPklInventaris.Controllers
                 if (existingKategori != null)
                 {
                     TempData["ErrorMessage"] = "Nama kategori sudah ada. Silakan gunakan nama lain.";
-                    return View(kategori);
+                    return View("~/Views/Backend/Kategori/Create.cshtml", kategori);
                 }
+                DateTime utcNow = DateTime.UtcNow;
+
+                TimeZoneInfo indonesiaTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time");
+                DateTime indonesiaNow = TimeZoneInfo.ConvertTimeFromUtc(utcNow, indonesiaTimeZone);
+
+                kategori.CreatedAt = indonesiaNow;
+                kategori.UpdatedAt = indonesiaNow;
 
                 _context.Add(kategori);
                 await _context.SaveChangesAsync();
                 TempData["SuccessMessage"] = "Data berhasil ditambah.";
                 return RedirectToAction(nameof(Index));
             }
-            return View("~/Views/Backend/Kategori/Create.cshtml",kategori);
+            TempData["ErrorMessage"] = "Nama kategori harus diisi.";
+            return View("~/Views/Backend/Kategori/Create.cshtml", kategori);
         }
 
         // GET: Kategori/Edit/5
@@ -91,7 +108,7 @@ namespace ProjekPklInventaris.Controllers
             {
                 return NotFound();
             }
-            return View("~/Views/Backend/Kategori/Edit.cshtml",kategori);
+            return View("~/Views/Backend/Kategori/Edit.cshtml", kategori);
         }
 
         // POST: Kategori/Edit/5
@@ -108,18 +125,34 @@ namespace ProjekPklInventaris.Controllers
 
             if (ModelState.IsValid)
             {
-                var existingKategori = await _context.Kategori
-                    .FirstOrDefaultAsync(k => k.Nama == kategori.Nama);
+              
+                var existingKategori = await _context.Kategori.FindAsync(id);
 
-                if (existingKategori != null)
+                if (existingKategori == null)
+                {
+                    return NotFound();
+                }
+
+                var duplicateKategori = await _context.Kategori
+                    .FirstOrDefaultAsync(k => k.Nama == kategori.Nama && k.Id != id);
+
+                if (duplicateKategori != null)
                 {
                     TempData["ErrorMessage"] = "Nama kategori sudah ada. Silakan gunakan nama lain.";
-                    return View(kategori);
+                    return View("~/Views/Backend/Kategori/Edit.cshtml", kategori);
                 }
 
                 try
                 {
-                    _context.Update(kategori);
+                    DateTime utcNow = DateTime.UtcNow;
+
+                    TimeZoneInfo indonesiaTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time");
+                    DateTime indonesiaNow = TimeZoneInfo.ConvertTimeFromUtc(utcNow, indonesiaTimeZone);
+
+                    kategori.CreatedAt = existingKategori.CreatedAt;
+                    kategori.UpdatedAt = indonesiaNow;
+
+                    _context.Entry(existingKategori).CurrentValues.SetValues(kategori); 
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -133,10 +166,12 @@ namespace ProjekPklInventaris.Controllers
                         throw;
                     }
                 }
+
                 TempData["SuccessMessage"] = "Data berhasil diedit.";
                 return RedirectToAction(nameof(Index));
             }
-            return View("~/Views/Backend/Kategori/Edit.cshtml",kategori);
+            TempData["ErrorMessage"] = "Nama kategori harus diisi.";
+            return View("~/Views/Backend/Kategori/Edit.cshtml", kategori);
         }
 
         // GET: Kategori/Delete/5
@@ -154,7 +189,7 @@ namespace ProjekPklInventaris.Controllers
                 return NotFound();
             }
 
-            return View("~/Views/Backend/Kategori/Delete.cshtml",kategori);
+            return View("~/Views/Backend/Kategori/Delete.cshtml", kategori);
         }
 
         // POST: Kategori/Delete/5

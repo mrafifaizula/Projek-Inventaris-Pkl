@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using ProjekPklInventaris.Models; // Pastikan ini ada
+using ProjekPklInventaris.Models;
 
 namespace ProjekPklInventaris.Controllers
 {

@@ -68,6 +68,60 @@
     </div>
   </div>
 
+
+  @* chart *@
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script>
+    var colors = ['#FF4560', '#FFA500', '#00E396',];
+
+    var options = {
+      series: [{
+        name: 'Data',
+        data: [@ViewBag.BarangCount, @ViewBag.PemasokCount, @ViewBag.KategoriCount,]
+      }],
+      chart: {
+        height: 350,
+        type: 'bar',
+        events: {
+          click: function (chart, w, e) {
+          }
+        }
+      },
+      colors: colors,
+      plotOptions: {
+        bar: {
+          columnWidth: '45%',
+          distributed: true,
+        }
+      },
+      dataLabels: {
+        enabled: true
+      },
+      legend: {
+        show: false
+      },
+      xaxis: {
+        categories: [
+          ['Jumlah', 'Barang'],
+          ['Jumlah', 'Pemasok'],
+          ['Jumlah', 'Kategori'],
+
+        ],
+        labels: {
+          style: {
+            colors: colors,
+            fontSize: '12px'
+          }
+        }
+      }
+    };
+
+    var chart = new ApexCharts(document.querySelector("#chartJumlah"), options);
+    chart.render();
+  </script>
+
+
+
   <!-- General JS Scripts -->
   <script src="~/assets/modules/jquery.min.js"></script>
   <script src="~/assets/modules/popper.js"></script>
@@ -100,6 +154,7 @@
 
   <!-- Page Specific JS File -->
   <script src="~/assets/js/page/modules-datatables.js"></script>
+
 
   @* datables *@
   <script>

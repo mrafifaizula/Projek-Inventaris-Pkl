@@ -1,3 +1,4 @@
+
 public class Barang
 {
     public int Id { get; set; }
@@ -10,8 +11,11 @@ public class Barang
     public string? Gambar { get; set; }
 
     public int KategoriId { get; set; }
-    public Kategori? Kategori { get; set; } // Tidak perlu diinisialisasi
+    public Kategori? Kategori { get; set; }
 
     public int PemasokId { get; set; }
-    public Pemasok? Pemasok { get; set; } // Tidak perlu diinisialisasi
+    public Pemasok? Pemasok { get; set; } 
+
+    public DateTime CreatedAt { get; set; }
+    public DateTime UpdatedAt { get; set; }
 }

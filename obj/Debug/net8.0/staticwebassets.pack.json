@@ -18517,24 +18517,72 @@
       "PackagePath": "staticwebassets\\images\\barang\\3297_gumbal3.jpg"
     },
     {
+      "Id": "C:\\Dotnet\\ProjekPklInventaris\\wwwroot\\images\\barang\\3532_minion4.jpg",
+      "PackagePath": "staticwebassets\\images\\barang\\3532_minion4.jpg"
+    },
+    {
       "Id": "C:\\Dotnet\\ProjekPklInventaris\\wwwroot\\images\\barang\\4035_art2.jpg",
       "PackagePath": "staticwebassets\\images\\barang\\4035_art2.jpg"
+    },
+    {
+      "Id": "C:\\Dotnet\\ProjekPklInventaris\\wwwroot\\images\\barang\\4478_onepiec2.jpg",
+      "PackagePath": "staticwebassets\\images\\barang\\4478_onepiec2.jpg"
+    },
+    {
+      "Id": "C:\\Dotnet\\ProjekPklInventaris\\wwwroot\\images\\barang\\4687_onepiec.jpg",
+      "PackagePath": "staticwebassets\\images\\barang\\4687_onepiec.jpg"
     },
     {
       "Id": "C:\\Dotnet\\ProjekPklInventaris\\wwwroot\\images\\barang\\4931_art2.jpg",
       "PackagePath": "staticwebassets\\images\\barang\\4931_art2.jpg"
     },
     {
+      "Id": "C:\\Dotnet\\ProjekPklInventaris\\wwwroot\\images\\barang\\5071_logo.jpg",
+      "PackagePath": "staticwebassets\\images\\barang\\5071_logo.jpg"
+    },
+    {
+      "Id": "C:\\Dotnet\\ProjekPklInventaris\\wwwroot\\images\\barang\\5115_spombob.jpg",
+      "PackagePath": "staticwebassets\\images\\barang\\5115_spombob.jpg"
+    },
+    {
       "Id": "C:\\Dotnet\\ProjekPklInventaris\\wwwroot\\images\\barang\\5229_gumbal2.jpg",
       "PackagePath": "staticwebassets\\images\\barang\\5229_gumbal2.jpg"
+    },
+    {
+      "Id": "C:\\Dotnet\\ProjekPklInventaris\\wwwroot\\images\\barang\\5240_logo.jpg",
+      "PackagePath": "staticwebassets\\images\\barang\\5240_logo.jpg"
+    },
+    {
+      "Id": "C:\\Dotnet\\ProjekPklInventaris\\wwwroot\\images\\barang\\5658_art.jpg",
+      "PackagePath": "staticwebassets\\images\\barang\\5658_art.jpg"
+    },
+    {
+      "Id": "C:\\Dotnet\\ProjekPklInventaris\\wwwroot\\images\\barang\\5660_upinipin4.jpg",
+      "PackagePath": "staticwebassets\\images\\barang\\5660_upinipin4.jpg"
     },
     {
       "Id": "C:\\Dotnet\\ProjekPklInventaris\\wwwroot\\images\\barang\\5709_gumbal4.jpg",
       "PackagePath": "staticwebassets\\images\\barang\\5709_gumbal4.jpg"
     },
     {
+      "Id": "C:\\Dotnet\\ProjekPklInventaris\\wwwroot\\images\\barang\\5889_logo.jpg",
+      "PackagePath": "staticwebassets\\images\\barang\\5889_logo.jpg"
+    },
+    {
       "Id": "C:\\Dotnet\\ProjekPklInventaris\\wwwroot\\images\\barang\\6150_gumbal2.jpg",
       "PackagePath": "staticwebassets\\images\\barang\\6150_gumbal2.jpg"
+    },
+    {
+      "Id": "C:\\Dotnet\\ProjekPklInventaris\\wwwroot\\images\\barang\\6183_gumbal3.jpg",
+      "PackagePath": "staticwebassets\\images\\barang\\6183_gumbal3.jpg"
+    },
+    {
+      "Id": "C:\\Dotnet\\ProjekPklInventaris\\wwwroot\\images\\barang\\6212_gumbal4.jpg",
+      "PackagePath": "staticwebassets\\images\\barang\\6212_gumbal4.jpg"
+    },
+    {
+      "Id": "C:\\Dotnet\\ProjekPklInventaris\\wwwroot\\images\\barang\\6390_upinipin4.jpg",
+      "PackagePath": "staticwebassets\\images\\barang\\6390_upinipin4.jpg"
     },
     {
       "Id": "C:\\Dotnet\\ProjekPklInventaris\\wwwroot\\images\\barang\\6442_gumbal4.jpg",
@@ -18549,8 +18597,24 @@
       "PackagePath": "staticwebassets\\images\\barang\\6618_gumbal4.jpg"
     },
     {
+      "Id": "C:\\Dotnet\\ProjekPklInventaris\\wwwroot\\images\\barang\\6986_minion4.jpg",
+      "PackagePath": "staticwebassets\\images\\barang\\6986_minion4.jpg"
+    },
+    {
+      "Id": "C:\\Dotnet\\ProjekPklInventaris\\wwwroot\\images\\barang\\7205_minion4.jpg",
+      "PackagePath": "staticwebassets\\images\\barang\\7205_minion4.jpg"
+    },
+    {
       "Id": "C:\\Dotnet\\ProjekPklInventaris\\wwwroot\\images\\barang\\8031_onepiec2.jpg",
       "PackagePath": "staticwebassets\\images\\barang\\8031_onepiec2.jpg"
+    },
+    {
+      "Id": "C:\\Dotnet\\ProjekPklInventaris\\wwwroot\\images\\barang\\8233_upinipin4.jpg",
+      "PackagePath": "staticwebassets\\images\\barang\\8233_upinipin4.jpg"
+    },
+    {
+      "Id": "C:\\Dotnet\\ProjekPklInventaris\\wwwroot\\images\\barang\\8486_gumbal4.jpg",
+      "PackagePath": "staticwebassets\\images\\barang\\8486_gumbal4.jpg"
     },
     {
       "Id": "C:\\Dotnet\\ProjekPklInventaris\\wwwroot\\images\\barang\\8498_gumbal4.jpg",
@@ -18559,6 +18623,10 @@
     {
       "Id": "C:\\Dotnet\\ProjekPklInventaris\\wwwroot\\images\\barang\\8781_minion3.jpg",
       "PackagePath": "staticwebassets\\images\\barang\\8781_minion3.jpg"
+    },
+    {
+      "Id": "C:\\Dotnet\\ProjekPklInventaris\\wwwroot\\images\\barang\\9310_upinipin.jpg",
+      "PackagePath": "staticwebassets\\images\\barang\\9310_upinipin.jpg"
     },
     {
       "Id": "C:\\Dotnet\\ProjekPklInventaris\\wwwroot\\images\\barang\\9546_upinipin4.jpg",

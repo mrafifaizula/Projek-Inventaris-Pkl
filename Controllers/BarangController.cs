@@ -14,19 +14,19 @@ namespace ProjekPklInventaris.Controllers
     public class BarangController : Controller
     {
         private readonly DataContext _context;
-        private readonly string _uploadFolder;
+        private readonly string _uploadGambar;
 
 
         public BarangController(DataContext context)
         {
             _context = context;
 
-            _uploadFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/barang");
+            _uploadGambar = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/barang");
 
             // Pastikan folder upload ada
-            if (!Directory.Exists(_uploadFolder))
+            if (!Directory.Exists(_uploadGambar))
             {
-                Directory.CreateDirectory(_uploadFolder);
+                Directory.CreateDirectory(_uploadGambar);
             }
         }
 
@@ -79,12 +79,12 @@ namespace ProjekPklInventaris.Controllers
                 if (Gambar != null && Gambar.Length > 0)
                 {
                     var randomName = $"{new Random().Next(2000, 9999)}_{Path.GetFileName(Gambar.FileName)}";
-                    var filePath = Path.Combine(_uploadFolder, randomName);
+                    var filePath = Path.Combine(_uploadGambar, randomName);
 
                     // Pastikan folder upload ada
-                    if (!Directory.Exists(_uploadFolder))
+                    if (!Directory.Exists(_uploadGambar))
                     {
-                        Directory.CreateDirectory(_uploadFolder);
+                        Directory.CreateDirectory(_uploadGambar);
                     }
 
                     using (var stream = new FileStream(filePath, FileMode.Create))
@@ -99,6 +99,13 @@ namespace ProjekPklInventaris.Controllers
                     TempData["ErrorMessage"] = "Image harus Diisi.";
 
                 }
+                DateTime utcNow = DateTime.UtcNow;
+
+                TimeZoneInfo indonesiaTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time");
+                DateTime indonesiaNow = TimeZoneInfo.ConvertTimeFromUtc(utcNow, indonesiaTimeZone);
+
+                barang.CreatedAt = indonesiaNow;
+                barang.UpdatedAt = indonesiaNow;
 
                 _context.Add(barang);
                 await _context.SaveChangesAsync();
@@ -148,21 +155,19 @@ namespace ProjekPklInventaris.Controllers
                     // Delete the old image if it exists
                     if (!string.IsNullOrEmpty(barang.Gambar))
                     {
-                        var oldImagePath = Path.Combine(_uploadFolder, barang.Gambar);
+                        var oldImagePath = Path.Combine(_uploadGambar, barang.Gambar);
                         if (System.IO.File.Exists(oldImagePath))
                         {
                             System.IO.File.Delete(oldImagePath);
                         }
                     }
 
-                    // Create a new random name for the uploaded image
                     var randomName = $"{new Random().Next(2000, 9999)}_{Path.GetFileName(Gambar.FileName)}";
-                    var filePath = Path.Combine(_uploadFolder, randomName);
+                    var filePath = Path.Combine(_uploadGambar, randomName);
 
-                    // Ensure the upload directory exists
-                    if (!Directory.Exists(_uploadFolder))
+                    if (!Directory.Exists(_uploadGambar))
                     {
-                        Directory.CreateDirectory(_uploadFolder);
+                        Directory.CreateDirectory(_uploadGambar);
                     }
 
                     using (var stream = new FileStream(filePath, FileMode.Create))
@@ -170,7 +175,6 @@ namespace ProjekPklInventaris.Controllers
                         await Gambar.CopyToAsync(stream);
                     }
 
-                    // Update the image property in your model
                     barang.Gambar = randomName;
                 }
                 else
