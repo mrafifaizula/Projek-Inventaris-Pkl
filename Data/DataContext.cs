@@ -19,6 +19,7 @@ namespace ProjekPklInventaris.Models
         public DbSet<Kategori> Kategori { get; set; } = default!;
         public DbSet<Pemasok> Pemasok { get; set; } = default!;
         public DbSet<Barang> Barang { get; set; } = default!;
+        public DbSet<DataPusat> DataPusat { get; set; } = default!;
 
     }
 }

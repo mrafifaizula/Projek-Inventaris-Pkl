@@ -137,15 +137,14 @@ namespace ProjekPklInventaris.Controllers
                 try
                 {
                     DateTime utcNow = DateTime.UtcNow;
+
                     TimeZoneInfo indonesiaTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time");
                     DateTime indonesiaNow = TimeZoneInfo.ConvertTimeFromUtc(utcNow, indonesiaTimeZone);
 
-                    // Update existing properties
-                    existingPemasok.Nama = pemasok.Nama;
-                    existingPemasok.Alamat = pemasok.Alamat;
-                    existingPemasok.UpdatedAt = indonesiaNow;
+                    pemasok.CreatedAt = existingPemasok.CreatedAt;
+                    pemasok.UpdatedAt = indonesiaNow;
 
-                    // No need to call _context.Update() since existingPemasok is already being tracked
+                    _context.Entry(existingPemasok).CurrentValues.SetValues(pemasok); 
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)

@@ -81,7 +81,6 @@ namespace ProjekPklInventaris.Controllers
                     var randomName = $"{new Random().Next(2000, 9999)}_{Path.GetFileName(Gambar.FileName)}";
                     var filePath = Path.Combine(_uploadGambar, randomName);
 
-                    // Pastikan folder upload ada
                     if (!Directory.Exists(_uploadGambar))
                     {
                         Directory.CreateDirectory(_uploadGambar);
@@ -152,7 +151,6 @@ namespace ProjekPklInventaris.Controllers
             {
                 if (Gambar != null && Gambar.Length > 0)
                 {
-                    // Delete the old image if it exists
                     if (!string.IsNullOrEmpty(barang.Gambar))
                     {
                         var oldImagePath = Path.Combine(_uploadGambar, barang.Gambar);
@@ -182,10 +180,33 @@ namespace ProjekPklInventaris.Controllers
                     TempData["ErrorMessage"] = "Image harus Diisi.";
                 }
 
+                var existingBarang = await _context.Barang.FindAsync(id);
+
+                if (existingBarang == null)
+                {
+                    return NotFound();
+                }
+
+                var duplicateBarang = await _context.Barang
+                    .FirstOrDefaultAsync(k => k.Nama == barang.Nama && k.Id != id);
+
+                if (duplicateBarang != null)
+                {
+                    TempData["ErrorMessage"] = "Nama kategori sudah ada. Silakan gunakan nama lain.";
+                    return View("~/Views/Backend/Barang/Edit.cshtml", barang);
+                }
 
                 try
                 {
-                    _context.Update(barang);
+                    DateTime utcNow = DateTime.UtcNow;
+
+                    TimeZoneInfo indonesiaTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time");
+                    DateTime indonesiaNow = TimeZoneInfo.ConvertTimeFromUtc(utcNow, indonesiaTimeZone);
+
+                    barang.CreatedAt = existingBarang.CreatedAt;
+                    barang.UpdatedAt = indonesiaNow;
+
+                    _context.Entry(existingBarang).CurrentValues.SetValues(barang);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)

@@ -59,7 +59,13 @@ app.MapControllerRoute(
 );
 
 app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    name: "datapusat",
+    pattern: "admin/datapusat/{action=Index}/{id?}",
+    defaults: new { controller = "DataPusat", action = "Index" }
+);
+
+// app.MapControllerRoute(
+//     name: "default",
+//     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

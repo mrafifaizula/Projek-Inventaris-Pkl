@@ -4,32 +4,32 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
 using ProjekPklInventaris.Models;
 
 namespace ProjekPklInventaris.Controllers
 {
     [Authorize]
-    public class KategoriController : Controller
+
+    public class DataPusatController : Controller
     {
         private readonly DataContext _context;
 
-        public KategoriController(DataContext context)
+        public DataPusatController(DataContext context)
         {
             _context = context;
         }
 
-        // GET: Kategori
+        // GET: DataPusat
         public async Task<IActionResult> Index()
         {
-            var kategoriList = await _context.Kategori.ToListAsync();
-            var sortedList = kategoriList.OrderByDescending(k => k.Id).ToList();
-
-            return View("~/Views/Backend/Kategori/Index.cshtml", sortedList);
+            var dataPusatList = await _context.DataPusat.ToListAsync();
+            var sortedList = dataPusatList.OrderByDescending(k => k.Id).ToList();
+            return View("~/Views/Backend/DataPusat/Index.cshtml", sortedList);
         }
 
-        // GET: Kategori/Details/5
+        // GET: DataPusat/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -37,57 +37,46 @@ namespace ProjekPklInventaris.Controllers
                 return NotFound();
             }
 
-            var kategori = await _context.Kategori
+            var dataPusat = await _context.DataPusat
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (kategori == null)
+            if (dataPusat == null)
             {
                 return NotFound();
             }
 
-            return View("~/Views/Backend/Kategori/Details.cshtml", kategori);
+            return View("~/Views/Backend/DataPusat/Details.cshtml", dataPusat);
         }
 
-        // GET: Kategori/Create
+        // GET: DataPusat/Create
         public IActionResult Create()
         {
-            return View("~/Views/Backend/Kategori/Create.cshtml");
+            return View("~/Views/Backend/DataPusat/Create.cshtml");
         }
 
-        // POST: Kategori/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: DataPusat/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nama")] Kategori kategori)
+        public async Task<IActionResult> Create([Bind("Id,Nama,Stok,Brand")] DataPusat dataPusat)
         {
             if (ModelState.IsValid)
             {
-                var existingKategori = await _context.Kategori
-                    .FirstOrDefaultAsync(k => k.Nama == kategori.Nama);
-
-                if (existingKategori != null)
-                {
-                    TempData["ErrorMessage"] = "Nama kategori sudah ada. Silakan gunakan nama lain.";
-                    return View("~/Views/Backend/Kategori/Create.cshtml", kategori);
-                }
                 DateTime utcNow = DateTime.UtcNow;
 
                 TimeZoneInfo indonesiaTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time");
                 DateTime indonesiaNow = TimeZoneInfo.ConvertTimeFromUtc(utcNow, indonesiaTimeZone);
 
-                kategori.CreatedAt = indonesiaNow;
-                kategori.UpdatedAt = indonesiaNow;
+                dataPusat.CreatedAt = indonesiaNow;
+                dataPusat.UpdatedAt = indonesiaNow;
 
-                _context.Add(kategori);
+                _context.Add(dataPusat);
                 await _context.SaveChangesAsync();
                 TempData["SuccessMessage"] = "Data berhasil ditambah.";
                 return RedirectToAction(nameof(Index));
             }
-            TempData["ErrorMessage"] = "Nama kategori harus diisi.";
-            return View("~/Views/Backend/Kategori/Create.cshtml", kategori);
+            return View("~/Views/Backend/DataPusat/Create.cshtml", dataPusat);
         }
 
-        // GET: Kategori/Edit/5
+        // GET: DataPusat/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -95,44 +84,35 @@ namespace ProjekPklInventaris.Controllers
                 return NotFound();
             }
 
-            var kategori = await _context.Kategori.FindAsync(id);
-            if (kategori == null)
+            var dataPusat = await _context.DataPusat.FindAsync(id);
+            if (dataPusat == null)
             {
                 return NotFound();
             }
-            return View("~/Views/Backend/Kategori/Edit.cshtml", kategori);
+            return View("~/Views/Backend/DataPusat/Edit.cshtml", dataPusat);
         }
 
-        // POST: Kategori/Edit/5
+        // POST: DataPusat/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nama")] Kategori kategori)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nama,Stok,Brand")] DataPusat dataPusat)
         {
-            if (id != kategori.Id)
+            if (id != dataPusat.Id)
             {
                 return NotFound();
             }
 
             if (ModelState.IsValid)
             {
-              
-                var existingKategori = await _context.Kategori.FindAsync(id);
+                var existingDataPusat = await _context.DataPusat.FindAsync(id);
 
-                if (existingKategori == null)
+                if (existingDataPusat == null)
                 {
                     return NotFound();
                 }
 
-                var duplicateKategori = await _context.Kategori
-                    .FirstOrDefaultAsync(k => k.Nama == kategori.Nama && k.Id != id);
-
-                if (duplicateKategori != null)
-                {
-                    TempData["ErrorMessage"] = "Nama kategori sudah ada. Silakan gunakan nama lain.";
-                    return View("~/Views/Backend/Kategori/Edit.cshtml", kategori);
-                }
 
                 try
                 {
@@ -141,15 +121,15 @@ namespace ProjekPklInventaris.Controllers
                     TimeZoneInfo indonesiaTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time");
                     DateTime indonesiaNow = TimeZoneInfo.ConvertTimeFromUtc(utcNow, indonesiaTimeZone);
 
-                    kategori.CreatedAt = existingKategori.CreatedAt;
-                    kategori.UpdatedAt = indonesiaNow;
+                    dataPusat.CreatedAt = existingDataPusat.CreatedAt;
+                    dataPusat.UpdatedAt = indonesiaNow;
 
-                    _context.Entry(existingKategori).CurrentValues.SetValues(kategori); 
+                    _context.Entry(existingDataPusat).CurrentValues.SetValues(dataPusat);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!KategoriExists(kategori.Id))
+                    if (!DataPusatExists(dataPusat.Id))
                     {
                         return NotFound();
                     }
@@ -158,15 +138,13 @@ namespace ProjekPklInventaris.Controllers
                         throw;
                     }
                 }
-
                 TempData["SuccessMessage"] = "Data berhasil diedit.";
                 return RedirectToAction(nameof(Index));
             }
-            TempData["ErrorMessage"] = "Nama kategori harus diisi.";
-            return View("~/Views/Backend/Kategori/Edit.cshtml", kategori);
+            return View("~/Views/Backend/DataPusat/Create.cshtml", dataPusat);
         }
 
-        // GET: Kategori/Delete/5
+        // GET: DataPusat/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -174,25 +152,25 @@ namespace ProjekPklInventaris.Controllers
                 return NotFound();
             }
 
-            var kategori = await _context.Kategori
+            var dataPusat = await _context.DataPusat
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (kategori == null)
+            if (dataPusat == null)
             {
                 return NotFound();
             }
 
-            return View("~/Views/Backend/Kategori/Delete.cshtml", kategori);
+            return View("~/Views/Backend/DataPusat/Delete.cshtml", dataPusat);
         }
 
-        // POST: Kategori/Delete/5
+        // POST: DataPusat/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var kategori = await _context.Kategori.FindAsync(id);
-            if (kategori != null)
+            var dataPusat = await _context.DataPusat.FindAsync(id);
+            if (dataPusat != null)
             {
-                _context.Kategori.Remove(kategori);
+                _context.DataPusat.Remove(dataPusat);
             }
 
             await _context.SaveChangesAsync();
@@ -200,9 +178,9 @@ namespace ProjekPklInventaris.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool KategoriExists(int id)
+        private bool DataPusatExists(int id)
         {
-            return _context.Kategori.Any(e => e.Id == id);
+            return _context.DataPusat.Any(e => e.Id == id);
         }
     }
 }

@@ -71,6 +71,9 @@ namespace ProjekPklInventaris.Areas.Identity.Pages.Account
         /// </summary>
         public class InputModel
         {
+            [Required]
+            [Display(Name = "Name")]
+            public string Name { get; set; }
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
@@ -115,6 +118,8 @@ namespace ProjekPklInventaris.Areas.Identity.Pages.Account
             {
                 var user = CreateUser();
 
+                user.UserName = Input.Name;
+
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);
@@ -142,7 +147,7 @@ namespace ProjekPklInventaris.Areas.Identity.Pages.Account
                     else
                     {
                         await _signInManager.SignInAsync(user, isPersistent: false);
-                        return LocalRedirect("~/Admin/Dashboard");
+                        return LocalRedirect("~/Identity/Account/Login");
                     }
                 }
                 foreach (var error in result.Errors)

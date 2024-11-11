@@ -97,6 +97,16 @@ title="Log in using your @provider.DisplayName account">@provider.DisplayName</b
                                 <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
 
                                 <div class="form-group">
+                                    <label asp-for="Input.Name" class="control-label"></label>
+                                    <!-- Ganti Input.UserName menjadi Input.Name -->
+                                    <input asp-for="Input.Name" class="form-control" />
+                                    <!-- Ganti Input.UserName menjadi Input.Name -->
+                                    <span asp-validation-for="Input.Name" class="text-danger"></span>
+                                    <!-- Ganti Input.UserName menjadi Input.Name -->
+                                </div>
+
+
+                                <div class="form-group">
                                     <label asp-for="Input.Email">Email</label>
                                     <input asp-for="Input.Email" type="email" class="form-control"
                                         autocomplete="username" aria-required="true" placeholder="name@example.com">

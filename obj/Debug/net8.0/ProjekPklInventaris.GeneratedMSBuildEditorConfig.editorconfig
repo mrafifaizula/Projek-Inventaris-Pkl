@@ -210,6 +210,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja2VuZFxEYXNoYm9hcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Dotnet/ProjekPklInventaris/Views/Backend/DataPusat/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja2VuZFxEYXRhUHVzYXRcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dotnet/ProjekPklInventaris/Views/Backend/DataPusat/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja2VuZFxEYXRhUHVzYXRcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dotnet/ProjekPklInventaris/Views/Backend/DataPusat/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja2VuZFxEYXRhUHVzYXRcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dotnet/ProjekPklInventaris/Views/Backend/DataPusat/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja2VuZFxEYXRhUHVzYXRcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Dotnet/ProjekPklInventaris/Views/Backend/DataPusat/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja2VuZFxEYXRhUHVzYXRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Dotnet/ProjekPklInventaris/Views/Backend/Kategori/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja2VuZFxLYXRlZ29yaVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
