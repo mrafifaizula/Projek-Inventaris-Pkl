@@ -8966,25 +8966,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\M Rafi Faizul Anwar.LAPTOP-3F21TF1A\\.nuget\\packages\\": {}
+    "C:\\Users\\ADVAN\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Dotnet\\ProjekPklInventaris\\ProjekPklInventaris.csproj",
+      "projectUniqueName": "C:\\Dotnet\\Projek-Inventaris-Pkl\\ProjekPklInventaris.csproj",
       "projectName": "ProjekPklInventaris",
-      "projectPath": "C:\\Dotnet\\ProjekPklInventaris\\ProjekPklInventaris.csproj",
-      "packagesPath": "C:\\Users\\M Rafi Faizul Anwar.LAPTOP-3F21TF1A\\.nuget\\packages\\",
-      "outputPath": "C:\\Dotnet\\ProjekPklInventaris\\obj\\",
+      "projectPath": "C:\\Dotnet\\Projek-Inventaris-Pkl\\ProjekPklInventaris.csproj",
+      "packagesPath": "C:\\Users\\ADVAN\\.nuget\\packages\\",
+      "outputPath": "C:\\Dotnet\\Projek-Inventaris-Pkl\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\M Rafi Faizul Anwar.LAPTOP-3F21TF1A\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\ADVAN\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "https://api.nuget.org/v3/index.json": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
